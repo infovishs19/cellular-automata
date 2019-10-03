@@ -1,27 +1,40 @@
-// The Nature of Code
-// Daniel Shiffman
-// http://natureofcode.com
-
-// A basic implementation of John Conway's Game of Life CA
-// how could this be improved to use object oriented programming?
-// think of it as similar to our particle system, with a "cell" class
-// to describe each individual cell and a "cellular automata" class
-// to describe a collection of cells
-
-var gol;
+var grid = {};
+var gridWidth = 15;
+var gridHeight = 10;
 
 function setup() {
     createCanvas(640, 360);
-    gol = new GOL();
+    //gol = new GOL();
+
+    for (let i = 0; i < gridWidth; i++) {
+        grid[i] = {};
+        for (let j = 0; j < gridHeight; j++) {
+             grid[i][j] = random(0,255);  
+        }    
+    }
+    noLoop();
 }
 
 function draw() {
     background(255);
-    gol.generate();
-    gol.display();
+    
+    var rectWidth = width/gridWidth;
+    var rectHeight = height/gridHeight;
+
+    for (let i = 0; i < gridWidth; i++) {
+        for (let j = 0; j < gridHeight; j++) {
+            let x = i*rectWidth;
+            let y = j*rectHeight;
+            console.log(x,y);
+            stroke(0);
+            console.log(grid[i][j]);
+            fill(grid[i][j]);
+            rect(x,y,rectWidth,rectHeight);
+        }   
+    }
 }
 
 // reset board when mouse is pressed
 function mousePressed() {
-    gol.init();
+    console.log('mouse pressed');
 }

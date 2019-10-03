@@ -4,9 +4,9 @@
 
 function GOL() {
 
-    this.w = 8;
-    this.columns = width/this.w;
-    this.rows = height/this.w;
+    this.w = 5;
+    this.columns = floor(width/this.w);
+    this.rows = floor(height/this.w);
     this.board = new Array(this.columns);
     for (var i = 0; i < this.columns; i++) {
       this.board[i] = new Array(this.rows);
