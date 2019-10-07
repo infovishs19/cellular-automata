@@ -4,7 +4,6 @@ var gridHeight = 10;
 
 function setup() {
     createCanvas(640, 360);
-    //gol = new GOL();
 
     for (let i = 0; i < gridWidth; i++) {
         grid[i] = {};
