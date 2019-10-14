@@ -23,7 +23,7 @@ function setup () {
     rectHeight = height / gridHeight;
 
     //create a two dimensional array
-    grid = create2DArray(gridWidth,gridHeight);
+    grid = create2DArray(gridWidth, gridHeight);
     console.log(grid);
 
     noLoop();
@@ -77,27 +77,27 @@ function keyTyped () {
 
 function updateGrid () {
     //create a two dimensional array for calculating the next generation
-    var nextGen = create2DArray(gridWidth,gridHeight);
+    var nextGen = create2DArray(gridWidth, gridHeight);
     console.log('nextGen');
     console.log(nextGen);
     //calculate the new states for each grid cell
     //omit border cells to keep code simple
-    for(var i=1; i<gridWidth-1; i++){
-        for(var j=1; j<gridHeight-1; j++){
+    for (var i = 1; i < gridWidth - 1; i++) {
+        for (var j = 1; j < gridHeight - 1; j++) {
             //get the states of the neigbouring cells
-            var topLeft = grid[i-1][j-1];
-            var top = grid[i][j-1];
-            var topRight = grid[i+1][j-1];
-            var left = grid[i-1][j];
-            var right = grid[i+1][j];
-            var bottomLeft = grid[i-1][j+1];
-            var bottom = grid[i][j+1];
-            var bottomRight = grid[i+1][j+1];
+            var topLeft = grid[i - 1][j - 1];
+            var top = grid[i][j - 1];
+            var topRight = grid[i + 1][j - 1];
+            var left = grid[i - 1][j];
+            var right = grid[i + 1][j];
+            var bottomLeft = grid[i - 1][j + 1];
+            var bottom = grid[i][j + 1];
+            var bottomRight = grid[i + 1][j + 1];
 
             //the value of the current cell
             let self = grid[i][j];
 
-            nextGen[i][j] = rules(self,topLeft,top,topRight,left,right,bottomLeft,bottom,bottomRight);
+            nextGen[i][j] = rules(self, topLeft, top, topRight, left, right, bottomLeft, bottom, bottomRight);
         }
     }
 
@@ -107,14 +107,14 @@ function updateGrid () {
 }
 
 //diese function müsst ihr so verändern, dass das gewünschte verhalten daraus resultiert
-function rules(self,topLeft,top,topRight,left,right,bottomLeft,bottom,bottomRight){
+function rules (self, topLeft, top, topRight, left, right, bottomLeft, bottom, bottomRight) {
     //here you can set the rules which should apply to an individual cell
 
     //example rule
     //if there is a neighbour to the direct top, left, right or bottom side,
     //then return 1 with a certain probability, otherwise return 0 
-    if(top == 1 || right == 1  || left == 1 || bottom == 1){
-        if(random(0,1) > 0.5){
+    if (top == 1 || right == 1 || left == 1 || bottom == 1) {
+        if (random(0, 1) > 0.5) {
             return 1;
         }
         else return 0;
@@ -147,8 +147,8 @@ function rules(self,topLeft,top,topRight,left,right,bottomLeft,bottom,bottomRigh
     // }
 }
 
-function create2DArray(w,h){
-   var arr =  new Array(w);
+function create2DArray (w, h) {
+    var arr = new Array(w);
     for (var i = 0; i < w; i++) {
         arr[i] = new Array(h);
     }
