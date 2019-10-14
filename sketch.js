@@ -110,6 +110,16 @@ function updateGrid () {
 function rules(self,topLeft,top,topRight,left,right,bottomLeft,bottom,bottomRight){
     //here you can set the rules which should apply to an individual cell
 
+    //example rule
+    //if there is a neighbour to the direct top, left, right or bottom side,
+    //then return 1 with a certain probability, otherwise return 0 
+    if(top == 1 || right == 1  || left == 1 || bottom == 1){
+        if(random(0,1) > 0.5){
+            return 1;
+        }
+        else return 0;
+    }
+    else return 0;
 
     //example rule
     //e.g. if there are equal or more than three neighbor cells with state 1, then return 1
@@ -120,7 +130,7 @@ function rules(self,topLeft,top,topRight,left,right,bottomLeft,bottom,bottomRigh
     // }
     // else return 0;
 
-    //another example rule
+    //example rule
     //if at least one neighbor has state one, then return 1, else return 0
     // let sum = topLeft+top+topRight+left+right+bottomLeft+bottom+bottomRight;
     // if(sum>=1){
@@ -128,15 +138,7 @@ function rules(self,topLeft,top,topRight,left,right,bottomLeft,bottom,bottomRigh
     // }
     // else return 0;
 
-    //another example rule
-    //if there is a neighbour to the direct top, left, right or bottom side,
-    //then return 1 with a certain probability, otherwise return 0 
-    if(top == 1 || right == 1  || left == 1 || bottom == 1){
-        return random(0,1) > 0.5;
-    }
-    else return 0;
-
-    //another example rule
+    //example rule
     // if(topLeft == 1 && topRight == 1 && bottomLeft == 1 && bottomRight == 1){
     //     return 1;
     // }
