@@ -6,8 +6,8 @@ var grid;
 var newGrid;
 
 //number of cells in the x and y direction
-var gridWidth = 40;
-var gridHeight = 30;
+var gridWidth = 20;
+var gridHeight = 15;
 
 //the width and high of a cell when its drawn as a rectangle
 var rectWidth;
